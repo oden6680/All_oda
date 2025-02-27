@@ -1,31 +1,30 @@
 {
-    "manifest_version": 2,
-    "name": "僕と一緒にインターネッツ！",
-    "description": "きっとあなたを幸せにします!!",
-    "version": "1.0.1",
-    "icons": {
-        "32": "images/icon_32.png",
-        "128": "images/icon_128.png"
-    },
-    "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": ["js/content.js"]
-    }],
-    "background": {
-        "scripts": ["js/background.js"],
-        "persistent": false
-    },
-    "browser_action": {
-        "default_icon": "images/icon_32.png"
-    },
-    "web_accessible_resources":[
-        "images/*.png",
-        "images/*.JPG"
-    ],
-    "permissions": [
-        "activeTab",
-        "background",
-        "http://*/*",
-        "https://*/*"
-    ]
+  "manifest_version": 3,
+  "name": "全部織田",
+  "description": "地球の約7割が海で覆われており、残りの3割が織田で覆われていると言われている",
+  "version": "3.0.0",
+  "icons": {
+    "32": "icons/icon_32.png",
+    "128": "icons/icon_128.png"
+  },
+  "action": {
+    "default_icon": "icons/icon_32.png"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*.png", "images/*.JPG"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://*/*", "https://*/*"]
 }

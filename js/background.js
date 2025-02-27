@@ -1,3 +1,3 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
-	chrome.tabs.sendMessage(tab.id, "true");
+chrome.action.onClicked.addListener((tab) => {
+  chrome.tabs.sendMessage(tab.id, "true");
 });
